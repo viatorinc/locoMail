@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Loco mail!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Loco API | <a href="/">Loco Mail</a></h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>URL</td>
+        <td>Method</td>
+    </tr>
+    </thead>
+    {% set previous_url = "/" %}
+    {% for url in urls %}
+    <tr>
+        <td><a href="{{ url }}">{{ url }}</a></td>
+        <td>{{ help[url]|safe }}</td>
+        {% set previous_url = url %}
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

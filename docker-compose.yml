@@ -1,0 +1,13 @@
+#
+# To startup things, just
+#   docker-compose up
+
+version: '2'
+services:
+
+  loco-mail:
+    ports:
+      - "10000:5000"
+      - "25:25"
+    container_name: loco-mail
+    image: loco-mail

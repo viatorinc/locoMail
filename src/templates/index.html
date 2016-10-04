@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Loco mail!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Loco Mail | <a href="/api">Loco API</a></h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Subject</th>
+        <th>TXT Content</th>
+        <th>HTML Content</th>
+        <th>Attachments</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="mails">
+
+    {% for mail in mails %}
+    <tr>
+        <th scope="row">{{mail.id}}</th>
+        <td><a href="/id/{{mail.id}}">{{mail.subject}}</a></td>
+        <td>{{mail.from_address}}</td>
+        <td>{{mail.to_address}}</td>
+        <td>{{mail.text[0:100]}}</td>
+        <td>{{mail.html[0:180]|safe}} <b>truncated content!!</b></td>
+
+        <td>
+            {% for attachment in mail.attachments %}
+            <p>
+                <a href="/files/{{mail.id}}/{{attachment}}" target="_blank" class="glyphicon glyphicon-file">{{attachment}}</a>
+            </p>
+            {% endfor %}
+        </td>
+        <td>
+            <a href="/id/delete/{{mail.id}}" class="glyphicon glyphicon-trash"/>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
