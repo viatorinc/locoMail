@@ -10,4 +10,4 @@ services:
       - "10000:5000"
       - "25:25"
     container_name: loco-mail
-    image: loco-mail
+    image: viatorinc/locomail

@@ -16,13 +16,19 @@ sqlite3 database. The reason to store the mails (and even the attachments!) into
 simple to search for them afterwards.
 
 ## How do I run it.
-The easiest way is to use docker
+The easiest way is to use docker, either run it directly
 
 ```bash
-docker run --rm --name loco-mail -it -p -p 5000:5000 -p 25:25 loco-mail
+docker run --rm --name loco-mail -it -p -p 10000:5000 -p 25:25 loco-mail
 ```
 
-You will need to expose ports 5000 and 25. Of course port 25 is the SMTP server, port 5000 is the web interface
+Or via docker-compose
+
+```bash
+docker-compose up
+```
+
+You will need to expose ports 10000 and 25. Of course port 25 is the SMTP server, port 10000 is the web interface
 to check any new emails.
 
 If you prefer not to run docker, simply run the python script directly
