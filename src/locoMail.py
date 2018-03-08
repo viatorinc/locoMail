@@ -148,7 +148,7 @@ def api_by_to(to_address):
     return _create_response(mail)
 
 
-def _create_response(raws: [MailWrapper], status=200, mimetpe='application/json'):
+def _create_response(raws: [MailWrapper], status=200, mimetpe='application/json') :
     """
       helper function to create response
     :param details:response details

@@ -20,9 +20,8 @@ class FakeSMTPServer(smtpd.SMTPServer):
         mail_dao = MailDAO()
         received_message = Parser().parsestr(data)
         print("-----------------------------------------------")
-        mail_contents = data
-        text = ""
-        html = ""
+        text = received_message.get_payload(decode=False)
+        html = received_message.get_payload(decode=False)
         files = {}  # Key is file name, value is file contents
         if received_message.is_multipart():
             for part in received_message.get_payload():

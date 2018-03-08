@@ -5,9 +5,10 @@
 version: '2'
 services:
 
-  loco-mail:
+  locomail:
+    build: .
     ports:
       - "5000:5000"
       - "25:25"
-    container_name: loco-mail
+    container_name: locomail
     image: viatorinc/locomail

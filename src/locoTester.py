@@ -52,6 +52,19 @@ html = """\
 
 
 
-send_mail("from@me.com", ["to@you.com"], "Test subject", text, html, files=["/home/jmoriano/Desktop/mlPresentation.pdf"
-                                                                           ,"/home/jmoriano/Firefox_wallpaper.png"
-])
+send_mail("from@me.com",
+          ["to@you.com"],
+          "Mail with html and files",
+          text,
+          html,
+          files=["test/hello_world.pdf",
+                 "test/test_attachment.txt"]
+          )
+
+
+send_mail("from@me.com",
+          ["to@you.com"],
+          "Mail with html",
+          text,
+          html
+          )
